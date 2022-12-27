@@ -20,14 +20,23 @@ const businessesArr = [
   business, business, business, business, business, business
 ];
 
-function App() {
-  return (
-    <div className="App">
-      <h1>ravenous</h1>
-      <SearchBar />
-      <BusinessList businessP={businessesArr} />
-    </div>
-  );
+
+
+class App extends React.Component {
+
+  searchYelp(term, location, sortBy) {
+    console.log(`Searching for ${term} in ${location}, sorted by ${sortBy}`);
+  }
+
+  render() {
+    return (
+        <div className="App">
+          <h1>ravenous</h1>
+          <SearchBar searchP={this.searchYelp} />
+          <BusinessList businessP={businessesArr} />
+        </div>
+      );
+    }
 }
 
 export default App;
